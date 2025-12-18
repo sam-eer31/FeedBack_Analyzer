@@ -1,15 +1,11 @@
 ## FeedBack Analyzer
 
-<p align="center">
-<img src="https://img.shields.io/badge/Project-Feedback%20Analyzer-blueviolet?style=flat-square" />
-<img src="https://img.shields.io/badge/NLP-Sentiment%20Analysis%20%7C%20Summarization-success?style=flat-square" />
-<img src="https://img.shields.io/badge/Models-RoBERTa%20%7C%20DistilBERT-informational?style=flat-square" />
-<img src="https://img.shields.io/badge/LLM-Gemini%20%7C%20Ollama-orange?style=flat-square" />
-<img src="https://img.shields.io/badge/Database-SQLite-blue?style=flat-square" />
-<img src="https://img.shields.io/badge/Backend-FastAPI-009688?style=flat-square" />
-<img src="https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square" />
-<img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" />
-</p>
+[![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green.svg)](https://fastapi.tiangolo.com)
+[![Ollama](https://img.shields.io/badge/Ollama-Local%20AI%20Models-orange.svg)](https://ollama.ai)
+[![Gemini](https://img.shields.io/badge/Gemini-Google%20GenAI-blueviolet.svg)](https://ai.google.dev)
+[![SQLite](https://img.shields.io/badge/SQLite-Embedded%20Database-blue.svg)](https://sqlite.org)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 FeedBack Analyzer is an end-to-end web application that turns **raw textual feedback** into **actionable insights**.
 It lets you upload feedback files (CSV, JSON, TXT), runs **local transformer-based sentiment analysis**, generates **AI summaries** (Gemini / Ollama), builds **word clouds**, and exports results as **CSV** and **PDF reports** – all wrapped in a clean, modern UI.
@@ -463,4 +459,5 @@ uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
 ## 📄 License
 
 MIT License
+
 
