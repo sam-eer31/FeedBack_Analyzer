@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme") || "dark";
+          document.documentElement.setAttribute("data-theme", saved);
+        } catch (e) {}
+      })();
+    </script>
+    <title>Contact Support - FeedBack Analyzer</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/static/assets/images/favicon.ico"
+    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <div class="brand">
+        <a href="/frontend/index.html" class="logo-link">
+          <img
+            src="/static/assets/images/logo.png"
+            alt="FeedBack Analyzer Logo"
+            class="logo"
+          />
+        </a>
+        <h1>Contact Support</h1>
+      </div>
+      <nav>
+        <a href="/frontend/index.html"
+          ><span class="icon icon-upload"></span> Upload</a
+        >
+        <a href="/frontend/history.html"
+          ><span class="icon icon-clock"></span> History</a
+        >
+        <button id="settingsBtn" class="icon-button" title="Settings">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+      </nav>
+      <input type="checkbox" id="checkbox" />
+      <label for="checkbox" class="toggle">
+        <div class="bar bar--top"></div>
+        <div class="bar bar--middle"></div>
+        <div class="bar bar--bottom"></div>
+      </label>
+      <div id="mobileMenu" class="mobile-menu">
+        <a href="/frontend/index.html"
+          ><span class="icon icon-upload"></span> Upload</a
+        >
+        <a href="/frontend/history.html"
+          ><span class="icon icon-clock"></span> History</a
+        >
+        <button id="mobileSettingsBtn" class="menu-link" type="button">
+          <i class="fa-solid fa-gear"></i> Settings
+        </button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="secondary-hero support-hero">
+        <p class="eyebrow">Lucknow Support Desk</p>
+        <h2>Send a note to the team that builds FeedBack Analyzer</h2>
+        <p class="subtitle">
+          Our customer success engineers work out of Hazratganj, Lucknow,
+          helping product, CX, and research leads translate raw feedback into
+          decisions.
+        </p>
+        <div class="hero-metrics">
+          <div class="metric-card">
+            <span class="metric-label">Primary office</span>
+            <span class="metric-value">Lucknow · IN</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Coverage</span>
+            <span class="metric-value">IST (UTC+5:30)</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Focus</span>
+            <span class="metric-value">AI Feedback Ops</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="support-contact contact-layout" id="contact">
+        <div class="contact-details">
+          <h3>How we can help</h3>
+          <p>
+            Share the dataset name, scenario, or visual you are reviewing. We
+            route questions directly to the Lucknow team that owns ingestion,
+            summarization, and dashboard releases.
+          </p>
+          <div class="contact-grid">
+            <div>
+              <span class="contact-label">Email</span>
+              <a href="mailto:support@feedbackanalyzer.app"
+                >support@feedbackanalyzer.app</a
+              >
+            </div>
+            <div>
+              <span class="contact-label">Workspace location</span>
+              <p>14/113 Hazratganj, Lucknow, Uttar Pradesh</p>
+            </div>
+            <div>
+              <span class="contact-label">Community</span>
+              <p>Slack Connect &amp; Teams shared channels on request</p>
+            </div>
+            <div>
+              <span class="contact-label">Focus areas</span>
+              <p>Ingestion, summarization, exports, governance</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <h4>Write to us</h4>
+          <form id="contactSupportForm" class="contact-form" novalidate>
+            <div>
+              <label for="supportEmail">Email address</label>
+              <input
+                type="email"
+                id="supportEmail"
+                name="email"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+            <div>
+              <label for="supportMessage">How can we help?</label>
+              <textarea
+                id="supportMessage"
+                name="message"
+                placeholder="Share context, dataset name, or analysis ID..."
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              <span class="btn-text">Send message</span>
+            </button>
+            <p class="form-status" id="contactFormStatus" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <h3>FeedBack Analyzer</h3>
+            <p>
+              Transform feedback into actionable insights with AI-powered
+              sentiment analysis
+            </p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-section">
+              <h4>Features</h4>
+              <ul>
+                <li><a href="/frontend/index.html#sentiment">Sentiment Analysis</a></li>
+                <li><a href="/frontend/index.html#summarization">Text Summarization</a></li>
+                <li><a href="/frontend/index.html#wordcloud">Word Cloud</a></li>
+                <li><a href="/frontend/dashboard.html#analytics">Analytics Dashboard</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Support</h4>
+              <ul>
+                <li><a href="/frontend/pages/support/help-center.html">Help Center</a></li>
+                <li><a href="/frontend/pages/support/documentation.html">Documentation</a></li>
+                <li><a href="/frontend/pages/support/contact.html">Contact Us</a></li>
+                <li><a href="/frontend/pages/support/status.html">System Status</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Resources</h4>
+              <ul>
+                <li><a href="/frontend/pages/resources/privacy.html">Privacy Policy</a></li>
+                <li><a href="/frontend/pages/resources/terms.html">Terms of Service</a></li>
+                <li><a href="/frontend/pages/resources/api.html">API Documentation</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-copyright">
+            <p>&copy; 2025 FeedBack Analyzer. All rights reserved.</p>
+          </div>
+          <div class="footer-social">
+            <a href="#" class="social-link" title="GitHub">
+              <span class="social-icon icon icon-github"></span>
+            </a>
+            <a href="#" class="social-link" title="LinkedIn">
+              <span class="social-icon icon icon-linkedin"></span>
+            </a>
+            <a href="#" class="social-link" title="Twitter">
+              <span class="social-icon icon icon-twitter"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/static/js/app.js"></script>
+    <script>
+      (function () {
+        const form = document.getElementById("contactSupportForm");
+        if (!form) return;
+        const statusNode = document.getElementById("contactFormStatus");
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          const button = form.querySelector("button");
+          button.classList.add("is-loading");
+          button.disabled = true;
+          statusNode.textContent = "";
+          statusNode.classList.remove("is-visible");
+          setTimeout(function () {
+            button.classList.remove("is-loading");
+            button.disabled = false;
+            form.reset();
+            statusNode.textContent =
+              "Done! Your note is logged and our Lucknow engineers will follow up.";
+            statusNode.classList.add("is-visible");
+          }, 1100);
+        });
+      })();
+    </script>
+  </body>
+</html>
+

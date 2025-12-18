@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme") || "dark";
+          document.documentElement.setAttribute("data-theme", saved);
+        } catch (e) {}
+      })();
+    </script>
+    <title>Privacy Policy - FeedBack Analyzer</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/static/assets/images/favicon.ico"
+    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <div class="brand">
+        <a href="/frontend/index.html" class="logo-link">
+          <img
+            src="/static/assets/images/logo.png"
+            alt="FeedBack Analyzer Logo"
+            class="logo"
+          />
+        </a>
+        <h1>Privacy Policy</h1>
+      </div>
+      <nav>
+        <a href="/frontend/index.html"
+          ><span class="icon icon-upload"></span> Upload</a
+        >
+        <a href="/frontend/history.html"
+          ><span class="icon icon-clock"></span> History</a
+        >
+        <button id="settingsBtn" class="icon-button" title="Settings">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+      </nav>
+      <input type="checkbox" id="checkbox" />
+      <label for="checkbox" class="toggle">
+        <div class="bar bar--top"></div>
+        <div class="bar bar--middle"></div>
+        <div class="bar bar--bottom"></div>
+      </label>
+      <div id="mobileMenu" class="mobile-menu">
+        <a href="/frontend/index.html"
+          ><span class="icon icon-upload"></span> Upload</a
+        >
+        <a href="/frontend/history.html"
+          ><span class="icon icon-clock"></span> History</a
+        >
+        <button id="mobileSettingsBtn" class="menu-link" type="button">
+          <i class="fa-solid fa-gear"></i> Settings
+        </button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="secondary-hero">
+        <p class="eyebrow">Data Protection</p>
+        <h2>Privacy practices shaped from Lucknow, India</h2>
+        <p class="subtitle">
+          FeedBack Analyzer is architected for regulated workloads. Our privacy
+          controls are maintained by a core governance team in Lucknow with
+          partners in Bengaluru and Frankfurt.
+        </p>
+      </section>
+
+      <section class="policy-grid">
+        <article class="policy-card">
+          <h3>Collection &amp; processing</h3>
+          <p>
+            We ingest only the datasets you upload or sync through the API.
+            Tenant data is logically isolated and encrypted using AES-256 at
+            rest plus TLS 1.3 in transit.
+          </p>
+          <ul class="info-list">
+            <li>Optional regional residency in ap-south-1 for India-focused orgs</li>
+            <li>Metadata stored in PostgreSQL with strict role-based access</li>
+            <li>Logs retained for 30 days unless a customer contract overrides</li>
+          </ul>
+        </article>
+        <article class="policy-card">
+          <h3>User rights</h3>
+          <p>
+            Workspace admins can delete datasets, revoke access tokens, and
+            export audit logs at any time. Subject access requests are handled
+            through our Lucknow privacy desk.
+          </p>
+          <ul class="info-list">
+            <li>Deletion jobs cascade through object storage and backups</li>
+            <li>Per-dataset retention timers configurable from 7 to 365 days</li>
+            <li>Support for GDPR, DPDP Act (India), and HIPAA business associate terms</li>
+          </ul>
+        </article>
+        <article class="policy-card">
+          <h3>Third parties</h3>
+          <p>
+            We rely on AWS, Snowflake, and trusted email providers solely to
+            deliver the FeedBack Analyzer service. Data is never sold or used to
+            train shared models.
+          </p>
+          <ul class="info-list">
+            <li>Vendors reviewed annually for SOC 2 Type II or ISO 27001</li>
+            <li>Inference models dedicated per tenant; no cross-customer mixing</li>
+            <li>Data processing agreements available for every integration</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="support-contact">
+        <div class="contact-details">
+          <h3>Questions?</h3>
+          <p>
+            Email privacy@feedbackanalyzer.app to talk directly with our
+            governance lead in Lucknow. We respond with policy references, data
+            maps, and breach-notification language tailored to your review.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <h3>FeedBack Analyzer</h3>
+            <p>
+              Transform feedback into actionable insights with AI-powered
+              sentiment analysis
+            </p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-section">
+              <h4>Features</h4>
+              <ul>
+                <li><a href="/frontend/index.html#sentiment">Sentiment Analysis</a></li>
+                <li><a href="/frontend/index.html#summarization">Text Summarization</a></li>
+                <li><a href="/frontend/index.html#wordcloud">Word Cloud</a></li>
+                <li><a href="/frontend/dashboard.html#analytics">Analytics Dashboard</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Support</h4>
+              <ul>
+                <li><a href="/frontend/pages/support/help-center.html">Help Center</a></li>
+                <li><a href="/frontend/pages/support/documentation.html">Documentation</a></li>
+                <li><a href="/frontend/pages/support/contact.html">Contact Us</a></li>
+                <li><a href="/frontend/pages/support/status.html">System Status</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Resources</h4>
+              <ul>
+                <li><a href="/frontend/pages/resources/privacy.html">Privacy Policy</a></li>
+                <li><a href="/frontend/pages/resources/terms.html">Terms of Service</a></li>
+                <li><a href="/frontend/pages/resources/api.html">API Documentation</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-copyright">
+            <p>&copy; 2025 FeedBack Analyzer. All rights reserved.</p>
+          </div>
+          <div class="footer-social">
+            <a href="#" class="social-link" title="GitHub">
+              <span class="social-icon icon icon-github"></span>
+            </a>
+            <a href="#" class="social-link" title="LinkedIn">
+              <span class="social-icon icon icon-linkedin"></span>
+            </a>
+            <a href="#" class="social-link" title="Twitter">
+              <span class="social-icon icon icon-twitter"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/static/js/app.js"></script>
+  </body>
+</html>
+

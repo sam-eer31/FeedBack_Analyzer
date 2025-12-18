@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme") || "dark";
+          document.documentElement.setAttribute("data-theme", saved);
+        } catch (e) {}
+      })();
+    </script>
+    <title>API Documentation - FeedBack Analyzer</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/static/assets/images/favicon.ico"
+    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <div class="brand">
+        <a href="/frontend/index.html" class="logo-link">
+          <img
+            src="/static/assets/images/logo.png"
+            alt="FeedBack Analyzer Logo"
+            class="logo"
+          />
+        </a>
+        <h1>API Documentation</h1>
+      </div>
+      <nav>
+        <a href="/frontend/index.html"
+          ><span class="icon icon-upload"></span> Upload</a
+        >
+        <a href="/frontend/history.html"
+          ><span class="icon icon-clock"></span> History</a
+        >
+        <button id="settingsBtn" class="icon-button" title="Settings">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+      </nav>
+      <input type="checkbox" id="checkbox" />
+      <label for="checkbox" class="toggle">
+        <div class="bar bar--top"></div>
+        <div class="bar bar--middle"></div>
+        <div class="bar bar--bottom"></div>
+      </label>
+      <div id="mobileMenu" class="mobile-menu">
+        <a href="/frontend/index.html"
+          ><span class="icon icon-upload"></span> Upload</a
+        >
+        <a href="/frontend/history.html"
+          ><span class="icon icon-clock"></span> History</a
+        >
+        <button id="mobileSettingsBtn" class="menu-link" type="button">
+          <i class="fa-solid fa-gear"></i> Settings
+        </button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="secondary-hero">
+        <p class="eyebrow">Developer Platform</p>
+        <h2>Integrate FeedBack Analyzer into your feedback stack</h2>
+        <p class="subtitle">
+          The API is maintained by the platform engineering pod in Lucknow.
+          Every endpoint uses OAuth 2.0 client credentials, scoped keys, and
+          signed webhooks.
+        </p>
+      </section>
+
+      <section class="api-reference" id="api">
+        <div>
+          <span class="badge badge-accent">Workflow</span>
+          <h3>Queue an analysis</h3>
+          <p>
+            Upload files (CSV, JSON, TXT) to object storage, then create an
+            analysis request. Poll the job or subscribe to callback events.
+          </p>
+          <ul class="info-list">
+            <li>Batch size: up to 5,000 comments per request</li>
+            <li>Retry strategy: exponential backoff (up to 5 attempts)</li>
+            <li>Webhook signatures: HMAC-SHA256 with workspace secret</li>
+          </ul>
+        </div>
+        <pre class="code-block">
+POST /api/v1/analyses
+Authorization: Bearer &lt;token&gt;
+Content-Type: application/json
+
+{
+  "name": "Voice of Rider - Lucknow Metro",
+  "language": "multilingual",
+  "files": [
+    "s3://feedback-analyzer/uploads/lucknow_riders_2025.csv"
+  ],
+  "callbacks": [
+    "https://ops.example.com/hooks/feedback"
+  ]
+}
+        </pre>
+      </section>
+
+      <section class="policy-grid">
+        <article class="policy-card">
+          <h3>Authentication</h3>
+          <p>
+            Create client credentials from the dashboard. Secrets are encrypted
+            with AWS KMS and rotated automatically every 90 days.
+          </p>
+          <ul class="info-list">
+            <li>Scopes: ingestion, analyses:read, exports, admin</li>
+            <li>IP allow lists optional for regulated deployments</li>
+            <li>Audit logs capture every token exchange in IST</li>
+          </ul>
+        </article>
+        <article class="policy-card">
+          <h3>Webhooks</h3>
+          <p>
+            Subscribe to `analysis.completed`, `analysis.failed`, and
+            `export.ready`. Each payload includes HMAC headers and replay
+            protection.
+          </p>
+          <ul class="info-list">
+            <li>Delivery timeout: 10 seconds per attempt</li>
+            <li>Automatic suppression after 24 hours of failures</li>
+            <li>Verification CLI available for local testing</li>
+          </ul>
+        </article>
+        <article class="policy-card">
+          <h3>SDKs</h3>
+          <p>
+            Official TypeScript and Python SDKs are published from our Lucknow
+            CI pipeline. Each release is signed and mapped to the OpenAPI spec.
+          </p>
+          <ul class="info-list">
+            <li>Package names: @feedback-analyzer/sdk and feedback-analyzer</li>
+            <li>Semantic versioning with weekly canary drops</li>
+            <li>Examples: ingestion queues, alerts, governance checks</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <h3>FeedBack Analyzer</h3>
+            <p>
+              Transform feedback into actionable insights with AI-powered
+              sentiment analysis
+            </p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-section">
+              <h4>Features</h4>
+              <ul>
+                <li><a href="/frontend/index.html#sentiment">Sentiment Analysis</a></li>
+                <li><a href="/frontend/index.html#summarization">Text Summarization</a></li>
+                <li><a href="/frontend/index.html#wordcloud">Word Cloud</a></li>
+                <li><a href="/frontend/dashboard.html#analytics">Analytics Dashboard</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Support</h4>
+              <ul>
+                <li><a href="/frontend/pages/support/help-center.html">Help Center</a></li>
+                <li><a href="/frontend/pages/support/documentation.html">Documentation</a></li>
+                <li><a href="/frontend/pages/support/contact.html">Contact Us</a></li>
+                <li><a href="/frontend/pages/support/status.html">System Status</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Resources</h4>
+              <ul>
+                <li><a href="/frontend/pages/resources/privacy.html">Privacy Policy</a></li>
+                <li><a href="/frontend/pages/resources/terms.html">Terms of Service</a></li>
+                <li><a href="/frontend/pages/resources/api.html">API Documentation</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-copyright">
+            <p>&copy; 2025 FeedBack Analyzer. All rights reserved.</p>
+          </div>
+          <div class="footer-social">
+            <a href="#" class="social-link" title="GitHub">
+              <span class="social-icon icon icon-github"></span>
+            </a>
+            <a href="#" class="social-link" title="LinkedIn">
+              <span class="social-icon icon icon-linkedin"></span>
+            </a>
+            <a href="#" class="social-link" title="Twitter">
+              <span class="social-icon icon icon-twitter"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/static/js/app.js"></script>
+  </body>
+</html>
+

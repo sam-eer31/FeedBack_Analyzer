@@ -1,0 +1,152 @@
+<div id="settingsModal" class="modal" style="display: none">
+  <div class="modal-content">
+    <div
+      class="settings-drag-handle"
+      id="settingsDragHandle"
+      aria-hidden="true"
+    >
+      <span class="settings-drag-grip"></span>
+    </div>
+    <div class="modal-header">
+      <h3>Settings</h3>
+      <button id="closeSettings" class="close-btn">
+        <span class="icon icon-close"></span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="settings-layout">
+        <aside class="settings-sidebar">
+          <nav class="settings-nav" role="tablist" aria-orientation="vertical">
+            <button
+              class="settings-tab active"
+              data-tab="appearance"
+              aria-selected="true"
+            >
+              <i class="fa-solid fa-palette" aria-hidden="true"></i>
+              <span>Appearance</span>
+            </button>
+            <button class="settings-tab" data-tab="models">
+              <i class="fa-solid fa-robot" aria-hidden="true"></i>
+              <span>Models</span>
+            </button>
+            <button class="settings-tab" data-tab="data">
+              <i class="fa-solid fa-database" aria-hidden="true"></i>
+              <span>Data Controls</span>
+            </button>
+          </nav>
+        </aside>
+        <section class="settings-content" data-view="sidebar">
+          <div
+            class="settings-mobile-header"
+            id="settingsMobileHeader"
+            style="display: none"
+          >
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="settingsBackBtn"
+            >
+              <span class="icon icon-back"></span>
+            </button>
+            <h4 id="settingsMobileTitle">Settings</h4>
+          </div>
+          <div
+            class="settings-panel active"
+            data-panel="appearance"
+            role="tabpanel"
+          >
+            <div class="setting-group">
+              <label>Theme</label>
+              <div class="theme-cards" id="themeCards">
+                <button
+                  class="theme-card"
+                  type="button"
+                  data-theme-option="light"
+                >
+                  <span class="theme-icon"><i class="fa-solid fa-sun"></i></span>
+                  <span class="theme-label">Light</span>
+                </button>
+                <button
+                  class="theme-card"
+                  type="button"
+                  data-theme-option="dark"
+                >
+                  <span class="theme-icon"><i class="fa-solid fa-moon"></i></span>
+                  <span class="theme-label">Dark</span>
+                </button>
+                <button
+                  class="theme-card"
+                  type="button"
+                  data-theme-option="system"
+                >
+                  <span class="theme-icon"
+                    ><i class="fa-solid fa-display"></i
+                  ></span>
+                  <span class="theme-label">System</span>
+                </button>
+              </div>
+              <div class="help-text">
+                Choose Light, Dark, or follow your system preference.
+              </div>
+            </div>
+          </div>
+          <div
+            class="settings-panel"
+            data-panel="models"
+            role="tabpanel"
+            aria-hidden="true"
+          >
+            <div class="setting-group">
+              <label for="settingsSummarySelector">Summarization Model</label>
+              <select id="settingsSummarySelector">
+                <option value="ollama">Gemma3:1b (Local)</option>
+                <option value="gemini">Gemini API (Cloud)</option>
+              </select>
+              <div class="help-text">
+                Local runs on your machine; Cloud uses API credits.
+              </div>
+            </div>
+            <div class="setting-group">
+              <label for="settingsSentimentSelector">Sentiment Model</label>
+              <div style="position: relative">
+                <select id="settingsSentimentSelector">
+                  <option value="roberta">RoBERTa (3-class)</option>
+                  <option value="distilbert">DistilBERT (2-class)</option>
+                </select>
+                <div
+                  id="settingsSentimentLoading"
+                  class="model-loading-overlay"
+                  style="display: none"
+                >
+                  <div id="modelLoader" class="logo-loader-container"></div>
+                  <span>Loading model...</span>
+                </div>
+              </div>
+              <div class="help-text">
+                RoBERTa: Positive/Neutral/Negative. DistilBERT:
+                Positive/Negative only.
+              </div>
+            </div>
+          </div>
+          <div
+            class="settings-panel"
+            data-panel="data"
+            role="tabpanel"
+            aria-hidden="true"
+          >
+            <div class="setting-group">
+              <label>Wordcloud cache</label>
+              <button id="clearWordcloudCacheBtn" class="btn btn-secondary">
+                Clear cached wordclouds
+              </button>
+              <div class="help-text">
+                Frees local storage and memory used by generated wordcloud images.
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+

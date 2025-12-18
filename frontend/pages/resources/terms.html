@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme") || "dark";
+          document.documentElement.setAttribute("data-theme", saved);
+        } catch (e) {}
+      })();
+    </script>
+    <title>Terms of Service - FeedBack Analyzer</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/static/assets/images/favicon.ico"
+    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <div class="brand">
+        <a href="/frontend/index.html" class="logo-link">
+          <img
+            src="/static/assets/images/logo.png"
+            alt="FeedBack Analyzer Logo"
+            class="logo"
+          />
+        </a>
+        <h1>Terms of Service</h1>
+      </div>
+      <nav>
+        <a href="/frontend/index.html"
+          ><span class="icon icon-upload"></span> Upload</a
+        >
+        <a href="/frontend/history.html"
+          ><span class="icon icon-clock"></span> History</a
+        >
+        <button id="settingsBtn" class="icon-button" title="Settings">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+      </nav>
+      <input type="checkbox" id="checkbox" />
+      <label for="checkbox" class="toggle">
+        <div class="bar bar--top"></div>
+        <div class="bar bar--middle"></div>
+        <div class="bar bar--bottom"></div>
+      </label>
+      <div id="mobileMenu" class="mobile-menu">
+        <a href="/frontend/index.html"
+          ><span class="icon icon-upload"></span> Upload</a
+        >
+        <a href="/frontend/history.html"
+          ><span class="icon icon-clock"></span> History</a
+        >
+        <button id="mobileSettingsBtn" class="menu-link" type="button">
+          <i class="fa-solid fa-gear"></i> Settings
+        </button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="secondary-hero">
+        <p class="eyebrow">Master Subscription</p>
+        <h2>Usage terms crafted for data teams in Lucknow and beyond</h2>
+        <p class="subtitle">
+          These terms govern your access to FeedBack Analyzer. They reflect the
+          legal reviews we conduct with customers headquartered in India, the EU,
+          and North America.
+        </p>
+      </section>
+
+      <section class="policy-grid">
+        <article class="policy-card">
+          <h3>Licensing</h3>
+          <p>
+            Workspaces are licensed per active tenant with unlimited viewer
+            seats. Creator seats cover uploads, model runs, and exports.
+          </p>
+          <ul class="info-list">
+            <li>Billing cycle: monthly or annual, invoiced from Lucknow</li>
+            <li>Auto-renew with 30-day cancellation window</li>
+            <li>Sandbox environments available for pilots</li>
+          </ul>
+        </article>
+        <article class="policy-card">
+          <h3>Acceptable use</h3>
+          <p>
+            You must own or be authorized to process the data you upload. Using
+            FeedBack Analyzer for harassment, surveillance, or disinformation is
+            strictly prohibited.
+          </p>
+          <ul class="info-list">
+            <li>No credential sharing or attempts to bypass controls</li>
+            <li>Security research permitted with 48-hour notice to Lucknow SOC</li>
+            <li>Automated scraping of the UI/API is disallowed</li>
+          </ul>
+        </article>
+        <article class="policy-card">
+          <h3>SLA &amp; support</h3>
+          <p>
+            Scale and Enterprise plans include a 99.9% uptime SLA backed by
+            service credits. Our Lucknow operations team provides release notes
+            and escalation coverage.
+          </p>
+          <ul class="info-list">
+            <li>Planned maintenance announced 48 hours in advance</li>
+            <li>Service credits applied to the next billing cycle</li>
+            <li>Customer data remains yours; we only process as instructed</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <h3>FeedBack Analyzer</h3>
+            <p>
+              Transform feedback into actionable insights with AI-powered
+              sentiment analysis
+            </p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-section">
+              <h4>Features</h4>
+              <ul>
+                <li><a href="/frontend/index.html#sentiment">Sentiment Analysis</a></li>
+                <li><a href="/frontend/index.html#summarization">Text Summarization</a></li>
+                <li><a href="/frontend/index.html#wordcloud">Word Cloud</a></li>
+                <li><a href="/frontend/dashboard.html#analytics">Analytics Dashboard</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Support</h4>
+              <ul>
+                <li><a href="/frontend/pages/support/help-center.html">Help Center</a></li>
+                <li><a href="/frontend/pages/support/documentation.html">Documentation</a></li>
+                <li><a href="/frontend/pages/support/contact.html">Contact Us</a></li>
+                <li><a href="/frontend/pages/support/status.html">System Status</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Resources</h4>
+              <ul>
+                <li><a href="/frontend/pages/resources/privacy.html">Privacy Policy</a></li>
+                <li><a href="/frontend/pages/resources/terms.html">Terms of Service</a></li>
+                <li><a href="/frontend/pages/resources/api.html">API Documentation</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-copyright">
+            <p>&copy; 2025 FeedBack Analyzer. All rights reserved.</p>
+          </div>
+          <div class="footer-social">
+            <a href="#" class="social-link" title="GitHub">
+              <span class="social-icon icon icon-github"></span>
+            </a>
+            <a href="#" class="social-link" title="LinkedIn">
+              <span class="social-icon icon icon-linkedin"></span>
+            </a>
+            <a href="#" class="social-link" title="Twitter">
+              <span class="social-icon icon icon-twitter"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/static/js/app.js"></script>
+  </body>
+</html>
+

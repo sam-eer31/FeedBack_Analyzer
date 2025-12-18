@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme") || "dark";
+          document.documentElement.setAttribute("data-theme", saved);
+        } catch (e) {}
+      })();
+    </script>
+    <title>System Status - FeedBack Analyzer</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/static/assets/images/favicon.ico"
+    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <header class="container">
+      <div class="brand">
+        <a href="/frontend/index.html" class="logo-link">
+          <img
+            src="/static/assets/images/logo.png"
+            alt="FeedBack Analyzer Logo"
+            class="logo"
+          />
+        </a>
+        <h1>System Status</h1>
+      </div>
+      <nav>
+        <a href="/frontend/index.html"
+          ><span class="icon icon-upload"></span> Upload</a
+        >
+        <a href="/frontend/history.html"
+          ><span class="icon icon-clock"></span> History</a
+        >
+        <button id="settingsBtn" class="icon-button" title="Settings">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+      </nav>
+      <input type="checkbox" id="checkbox" />
+      <label for="checkbox" class="toggle">
+        <div class="bar bar--top"></div>
+        <div class="bar bar--middle"></div>
+        <div class="bar bar--bottom"></div>
+      </label>
+      <div id="mobileMenu" class="mobile-menu">
+        <a href="/frontend/index.html"
+          ><span class="icon icon-upload"></span> Upload</a
+        >
+        <a href="/frontend/history.html"
+          ><span class="icon icon-clock"></span> History</a
+        >
+        <button id="mobileSettingsBtn" class="menu-link" type="button">
+          <i class="fa-solid fa-gear"></i> Settings
+        </button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="secondary-hero">
+        <p class="eyebrow">Service Health</p>
+        <h2>Operational snapshot from Lucknow, India</h2>
+        <p class="subtitle">
+          Status indicators are updated by the Lucknow reliability crew whenever
+          we ship a release or detect a variance across ingestion, AI
+          summarization, or exports.
+        </p>
+      </section>
+
+      <section class="status-grid">
+        <article class="status-card">
+          <span class="status-indicator is-operational">Operational</span>
+          <h3>Data ingestion</h3>
+          <p>
+            Batch uploads through the dashboard and API are processing within
+            the expected 2–4 minute window for 200 MB CSV files observed in
+            November 2025 regression tests.
+          </p>
+          <ul class="info-list">
+            <li>Lucknow S3 staging plus regional mirrors stay &lt; 5% queue depth</li>
+            <li>Schema validation and PII scrubbing run on GPU-backed workers</li>
+            <li>CSV, JSON, TXT inputs auto-balanced across US-EAST-1 &amp; ap-south-1</li>
+          </ul>
+          <p class="status-meta">Last manual verification: 21 Nov 2025</p>
+        </article>
+
+        <article class="status-card">
+          <span class="status-indicator is-operational">Operational</span>
+          <h3>Summaries &amp; sentiment</h3>
+          <p>
+            Multilingual summarization models (32 languages) passed accuracy
+            gate on the 5k-record golden set curated by the Lucknow product
+            research pod.
+          </p>
+          <ul class="info-list">
+            <li>GPU utilization steady at 63% during load tests</li>
+            <li>Model retraining cadence: every Thursday, tracked in GitOps</li>
+            <li>Benchmark delta &lt; 1.5% for hospitality, retail, healthcare datasets</li>
+          </ul>
+          <p class="status-meta">Monitoring scope: summarizer, sentiment, keywords</p>
+        </article>
+
+        <article class="status-card">
+          <span class="status-indicator is-monitoring">Monitoring</span>
+          <h3>Exports &amp; notifications</h3>
+          <p>
+            CSV/PDF exports are available, but we are watching a spike in large
+            PDF render times triggered by new Lucknow pilot workspaces.
+          </p>
+          <ul class="info-list">
+            <li>Render time p95 up to 38s for 400-page decks</li>
+            <li>Temporary mitigation: queue expansion + warm cache</li>
+            <li>Impact: dashboards and alerting remain unaffected</li>
+          </ul>
+          <p class="status-meta">Next update will follow once PDF pipeline is tuned.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <h3>FeedBack Analyzer</h3>
+            <p>
+              Transform feedback into actionable insights with AI-powered
+              sentiment analysis
+            </p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-section">
+              <h4>Features</h4>
+              <ul>
+                <li><a href="/frontend/index.html#sentiment">Sentiment Analysis</a></li>
+                <li><a href="/frontend/index.html#summarization">Text Summarization</a></li>
+                <li><a href="/frontend/index.html#wordcloud">Word Cloud</a></li>
+                <li><a href="/frontend/dashboard.html#analytics">Analytics Dashboard</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Support</h4>
+              <ul>
+                <li><a href="/frontend/pages/support/help-center.html">Help Center</a></li>
+                <li><a href="/frontend/pages/support/documentation.html">Documentation</a></li>
+                <li><a href="/frontend/pages/support/contact.html">Contact Us</a></li>
+                <li><a href="/frontend/pages/support/status.html">System Status</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Resources</h4>
+              <ul>
+                <li><a href="/frontend/pages/resources/privacy.html">Privacy Policy</a></li>
+                <li><a href="/frontend/pages/resources/terms.html">Terms of Service</a></li>
+                <li><a href="/frontend/pages/resources/api.html">API Documentation</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-copyright">
+            <p>&copy; 2025 FeedBack Analyzer. All rights reserved.</p>
+          </div>
+          <div class="footer-social">
+            <a href="#" class="social-link" title="GitHub">
+              <span class="social-icon icon icon-github"></span>
+            </a>
+            <a href="#" class="social-link" title="LinkedIn">
+              <span class="social-icon icon icon-linkedin"></span>
+            </a>
+            <a href="#" class="social-link" title="Twitter">
+              <span class="social-icon icon icon-twitter"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/static/js/app.js"></script>
+  </body>
+</html>
+
