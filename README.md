@@ -482,9 +482,7 @@ With that structure, you can embed them in this README using the paths below.
 
 - **Upload / Home page**
 
-  ```markdown
   ![Upload Page](frontend/static/assets/images/ui/index.html.png)
-  ```
 
 - **Dashboard**
 
@@ -592,5 +590,6 @@ Before publishing publicly, you should:
 - Choose an appropriate license (e.g. MIT, Apache 2.0, GPL), and
 - Add a `LICENSE` file at the project root, and
 - Update this section accordingly.
+
 
 
