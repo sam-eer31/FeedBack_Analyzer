@@ -5,6 +5,8 @@ It lets you upload feedback files (CSV, JSON, TXT), runs **local transformer-bas
 
 ---
 
+<a id="key-highlights"></a>
+
 ## ✨ Key Highlights
 
 - 📂 **Multi-format uploads** — CSV, JSON, TXT (multiple files supported)
@@ -26,7 +28,7 @@ It lets you upload feedback files (CSV, JSON, TXT), runs **local transformer-bas
 
 ## 📚 Table of Contents
 
-> ✅ **GitHub-safe anchors (emoji-proof)**
+> ✅ **GitHub‑safe anchors (emoji‑proof)**
 
 1. [Key Highlights](#key-highlights)
 2. [Key Features](#key-features)
@@ -48,6 +50,8 @@ It lets you upload feedback files (CSV, JSON, TXT), runs **local transformer-bas
 ---
 
 
+
+<a id="key-features"></a>
 
 ## 🚀 Key Features
 
@@ -100,6 +104,8 @@ It lets you upload feedback files (CSV, JSON, TXT), runs **local transformer-bas
 
 ---
 
+<a id="architecture-overview"></a>
+
 ## 🏗 Architecture Overview
 
 ### Backend (`backend/`)
@@ -119,11 +125,15 @@ It lets you upload feedback files (CSV, JSON, TXT), runs **local transformer-bas
 
 - SQLite database (`analyses.db`) storing analyses and comment‑level results
 
-### ⚙️ Configuration
+#<a id="configuration"></a>
+
+## ⚙️ Configuration
 
 - Environment variables loaded from `.env` using `python-dotenv`
 
 ---
+
+<a id="tech-stack"></a>
 
 ## 🧰 Tech Stack
 
@@ -155,6 +165,8 @@ It lets you upload feedback files (CSV, JSON, TXT), runs **local transformer-bas
 - Font Awesome
 
 ---
+
+<a id="project-structure"></a>
 
 ## 📁 Project Structure
 
@@ -188,6 +200,8 @@ FeedBack_Analyzer/
 ```
 
 ---
+
+<a id="getting-started"></a>
 
 ## 🧑‍💻 Getting Started
 
@@ -240,6 +254,8 @@ Notes:
 
 ---
 
+<a id="running-the-application"></a>
+
 ## ▶️ Running the Application
 
 ### Using launch.bat (Windows)
@@ -256,6 +272,8 @@ uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
 
 ---
 
+<a id="using-the-web-ui"></a>
+
 ## 🌐 Using the Web UI
 
 - Upload one or more feedback files
@@ -265,6 +283,8 @@ uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
 - Export CSV, PDF, and wordclouds
 
 ---
+
+<a id="api-overview"></a>
 
 ## 🔌 API Overview
 
@@ -296,12 +316,16 @@ uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
 
 ---
 
+<a id="data--storage"></a>
+
 ## 🗄 Data & Storage
 
 - SQLite database: `data/analyses.db`
 - Stores analyses, comments, sentiment, summaries, and metadata
 
 ---
+
+<a id="screenshots"></a>
 
 ## 📸 Screenshots
 
@@ -365,6 +389,8 @@ uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
 
 ---
 
+<a id="development-notes"></a>
+
 ## 🧪 Development Notes
 
 - Default sentiment model loaded at startup (`roberta`)
@@ -372,6 +398,8 @@ uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
 - Summarization is batched, streamed, and retried on failure
 
 ---
+
+<a id="troubleshooting"></a>
 
 ## 🛠 Troubleshooting
 
@@ -382,6 +410,8 @@ uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
 
 ---
 
+<a id="future-improvements"></a>
+
 ## 🔮 Future Improvements
 
 - Authentication & multi‑tenant support
@@ -390,6 +420,8 @@ uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
 - Custom export templates
 
 ---
+
+<a id="license"></a>
 
 ## 📄 License
 
