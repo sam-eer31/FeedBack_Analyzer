@@ -488,40 +488,28 @@ With that structure, you can embed them in this README using the paths below.
 
 - **Dashboard**
 
-  ```markdown
   ![Dashboard](frontend/static/assets/images/ui/dashboard.html.png)
-  ```
 
 - **History**
 
-  ```markdown
   ![History](frontend/static/assets/images/ui/history.html.png)
-  ```
 
 - **Preview Modal**
 
-
   ![Preview Modal](frontend/static/assets/images/ui/preview_modal.png)
-
 
 - **Settings Modal**
 
-  ```markdown
   ![Settings Modal](frontend/static/assets/images/ui/settings_modal.png)
-  ```
 
 - **Wordcloud View**
 
-  ```markdown
   ![Wordcloud](frontend/static/assets/images/ui/wordcloud.png)
-  ```
 
 - **CSV & PDF Reports**
 
-  ```markdown
   ![CSV Report](frontend/static/assets/images/ui/csv_report.png)
   ![PDF Report](frontend/static/assets/images/ui/pdf_report.png)
-  ```
 
 If you prefer, you can replace these fenced examples with direct image embeds in this README so they render as images on GitHub (remove the outer ```markdown fences and keep only the `![Alt](path)` lines).
 
@@ -604,4 +592,5 @@ Before publishing publicly, you should:
 - Choose an appropriate license (e.g. MIT, Apache 2.0, GPL), and
 - Add a `LICENSE` file at the project root, and
 - Update this section accordingly.
+
 
