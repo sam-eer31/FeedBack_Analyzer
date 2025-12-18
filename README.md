@@ -39,11 +39,12 @@ It lets you upload feedback files (CSV, JSON, TXT), runs **local transformer-bas
 9. 🌐 [Using the Web UI](#using-the-web-ui)
 10. 🔌 [API Overview](#api-overview)
 11. 🗄 [Data & Storage](#data--storage)
-12. 📸 [Screenshots](#screenshots)
-13. 🧪 [Development Notes](#development-notes)
-14. 🛠 [Troubleshooting](#troubleshooting)
-15. 🔮 [Future Improvements](#future-improvements)
-16. 📄 [License](#license)
+12. 📤 [Exports & Reporting](#exports--reporting)
+13. 📸 [Screenshots](#screenshots)
+14. 🧪 [Development Notes](#development-notes)
+15. 🛠 [Troubleshooting](#troubleshooting)
+16. 🔮 [Future Improvements](#future-improvements)
+17. 📄 [License](#license)
 
 ---
 
@@ -320,6 +321,33 @@ uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
 
 - SQLite database: `data/analyses.db`
 - Stores analyses, comments, sentiment, summaries, and metadata
+
+---
+
+<a id="exports--reporting"></a>
+
+## 📤 Exports & Reporting
+
+### CSV Export
+
+- One row per comment
+- Includes:
+  - Original text
+  - Cleaned text
+  - Sentiment label & score
+  - AI-generated summary
+- UTF-8 with BOM for Excel compatibility
+- Suitable for downstream analysis (Excel, Power BI, Python)
+
+### PDF Report
+
+- Generated using `reportlab`
+- Multi-page **Feedback Intelligence Report** containing:
+  - Title page with metadata and branding
+  - Sentiment distribution tables and charts
+  - Key insights and recommendations
+  - Top positive / neutral / negative comments
+  - Full comment & summary appendix for auditability
 
 ---
 
