@@ -362,11 +362,6 @@ uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
 
 ## 📸 Screenshots
 
-<details open>
-<summary><strong>📸 Application UI Overview</strong></summary>
-
-<br/>
-
 ### Upload / Home
 *Start a new analysis by uploading feedback files (CSV, JSON, TXT) and preview parsed content before processing.*
 
@@ -418,7 +413,6 @@ uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
 **PDF Report**  
 ![PDF Report](frontend/static/assets/images/ui/pdf_report.png)
 
-</details>
 
 ---
 
@@ -459,5 +453,6 @@ uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
 ## 📄 License
 
 MIT License
+
 
 
