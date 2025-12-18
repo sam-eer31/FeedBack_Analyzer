@@ -507,9 +507,8 @@ With that structure, you can embed them in this README using the paths below.
 - **CSV & PDF Reports**
 
   ![CSV Report](frontend/static/assets/images/ui/csv_report.png)
-  ![PDF Report](frontend/static/assets/images/ui/pdf_report.png)
 
-If you prefer, you can replace these fenced examples with direct image embeds in this README so they render as images on GitHub (remove the outer ```markdown fences and keep only the `![Alt](path)` lines).
+  ![PDF Report](frontend/static/assets/images/ui/pdf_report.png)
 
 ---
 
@@ -590,6 +589,7 @@ Before publishing publicly, you should:
 - Choose an appropriate license (e.g. MIT, Apache 2.0, GPL), and
 - Add a `LICENSE` file at the project root, and
 - Update this section accordingly.
+
 
 
 
