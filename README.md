@@ -500,9 +500,9 @@ With that structure, you can embed them in this README using the paths below.
 
 - **Preview Modal**
 
-  ```markdown
+
   ![Preview Modal](frontend/static/assets/images/ui/preview_modal.png)
-  ```
+
 
 - **Settings Modal**
 
@@ -604,3 +604,4 @@ Before publishing publicly, you should:
 - Choose an appropriate license (e.g. MIT, Apache 2.0, GPL), and
 - Add a `LICENSE` file at the project root, and
 - Update this section accordingly.
+
