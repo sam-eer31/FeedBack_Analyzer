@@ -42,15 +42,15 @@ It lets you upload feedback files (CSV, JSON, TXT), runs **local transformer‑b
 - **AI text summarization**
 
   - Generates **concise summaries** for long comments.
-  - Primary summarizer: **Google Gemini API** via `google-generativeai`.
-  - Optional local summarizer: **Ollama** (e.g. `gemma3:1b`) where available.
+  - Primary summarizer: **Google Gemini API** via `google-genai`.
+  - Optional local summarizer: **Ollama** (e.g. `gemma3:7b`) where available.
   - Summarization is **batched and streamed** to keep the UI responsive.
 
 - **Analytics dashboard**
 
   - Visualizes sentiment distribution (positive/neutral/negative).
   - Displays comment‑level insights, summaries, and key statistics.
-  - Generates a **server‑side wordcloud** as a PNG image.
+  - Generates a **wordcloud** as a PNG image.
 
 - **History & management**
 
@@ -90,15 +90,12 @@ It lets you upload feedback files (CSV, JSON, TXT), runs **local transformer‑b
   - Uses `app.js` to call backend APIs for uploads, polling analysis status, rendering charts, and handling exports.
   - `style.css` provides a polished theme with responsive layouts, modals, and status overlays.
 
-- **Data & storage (`data/`)**
+- **Storage (`data/`)**
 
   - SQLite database (`data/analyses.db`) stores analyses and comment‑level results.
-  - Generated assets such as wordcloud images are stored under `data/wordclouds/`.
-  - Exported reports are stored in `data/exports/`.
 
-- **Configuration & logging**
+- **Configuration**
   - Environment variables loaded from a project‑root `.env` file using `python-dotenv`.
-  - Centralized log file under `logs/app.log` for backend activity and errors.
 
 ---
 
@@ -115,15 +112,15 @@ It lets you upload feedback files (CSV, JSON, TXT), runs **local transformer‑b
 - **Machine Learning & AI**
 
   - **Sentiment analysis**: Hugging Face `transformers`, `torch`, `huggingface-hub`
-  - **Summarization (cloud)**: `google-generativeai` (Gemini API)
-  - **Summarization (local, optional)**: Ollama (e.g. `gemma3:1b`) via custom wrapper
+  - **Summarization (cloud)**: `google-genai` (Gemini API)
+  - **Summarization (local, optional)**: Ollama (e.g. `gemma3:7b`) via custom wrapper
   - **NLP utilities**: `numpy`, `pandas` for data handling
 
 - **Reporting & Visualization**
 
   - **PDF generation**: `reportlab`
   - **Wordclouds**: `wordcloud`, `Pillow`
-  - **Static charts in UI**: Chart.js (loaded on the frontend)
+  - **Static charts in UI**: Chart.js, AmChart.js and AnyChart.com (loaded on the frontend)
 
 - **Frontend**
 
@@ -162,27 +159,18 @@ FeedBack_Analyzer/
 │  ├─ dashboard.html     # Dashboard view (charts & insights)
 │  ├─ history.html       # Analysis history & management
 │  └─ static/
-│     ├─ css/style.css   # Styles for all frontend pages
-│     ├─ js/app.js       # Frontend logic (calls backend APIs)
-│     └─ assets/images/  # Logos, icons, chart thumbnails
+│     ├─ css/style.css           # Styles for all frontend pages
+│     ├─ js/app.js               # Frontend logic (calls backend APIs)
+│     └─ assets/
+│        └─ images/              # Logos, icons, chart thumbnails
+│           └─ ui/               # UI screenshots
 │
 ├─ data/
 │  ├─ analyses.db        # SQLite database
-│  ├─ wordclouds/        # Generated wordcloud PNGs
-│  ├─ exports/           # Generated CSV & PDF reports
-│  └─ sample_data/       # Example CSVs for testing
-│
-├─ docs/
-│  ├─ documentation/     # Project report, ER diagram, PDFs, etc.
-│  │  └─ UI_Screenshots/ # App UI screenshots (used in README)
-│  └─ README.md          # Short technical setup notes (internal)
-│
-├─ logs/
-│  └─ app.log            # Application log file
 │
 ├─ requirements.txt
-├─ start.bat             # Convenience script to start backend (Windows)
-└─ launch.bat            # Optional launcher
+├─ installer.bat         # Installer to setup everything
+└─ launch.bat            # launcher to start backend 
 ```
 
 ---
@@ -195,12 +183,12 @@ FeedBack_Analyzer/
 - **OS**: Windows 10+ (tested), Linux, or macOS
 - **Optional (for local LLM summarization)**:
   - [Ollama](https://ollama.com/) installed and running locally
-  - A model such as `gemma3:1b` pulled to your machine
+  - A model such as `gemma3:7b` pulled to your machine
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/FeedBack_Analyzer.git
+git clone https://github.com/sam-eer31/FeedBack_Analyzer.git
 cd FeedBack_Analyzer
 ```
 
@@ -543,7 +531,6 @@ With that structure, you can embed them in this README using the paths below.
 - **Summaries are missing or stuck**
 
   - Check the analysis `meta` in the database for `summarizer_error`.
-  - Look at `logs/app.log` for stack traces.
   - Use `POST /analyses/{analysis_id}/retry-failed-summaries` to retry failed items.
 
 - **Models take long to load**
@@ -583,12 +570,10 @@ With that structure, you can embed them in this README using the paths below.
 
 ## License
 
-This project is currently provided **without an explicit license**.  
-Before publishing publicly, you should:
+This project is licensed under the **MIT License**.  
+See the `LICENSE` file at the root of this repository for the full license text.
 
-- Choose an appropriate license (e.g. MIT, Apache 2.0, GPL), and
-- Add a `LICENSE` file at the project root, and
-- Update this section accordingly.
+
 
 
 
