@@ -1,28 +1,27 @@
-# 🧠 FeedBack Analyzer  
-### Turn Raw Feedback into Actionable Intelligence
+## FeedBack Analyzer
 
-**FeedBack Analyzer** is a full-stack web application that transforms **unstructured textual feedback** into **clear, actionable insights**.  
-It supports multi-file uploads, performs **local transformer-based sentiment analysis**, generates **AI-powered summaries**, visualizes insights with dashboards and word clouds, and exports professional **CSV and PDF reports** — all through a clean, modern UI.
+FeedBack Analyzer is an end‑to‑end web application that turns **raw textual feedback** into **actionable insights**.
+It lets you upload feedback files (CSV, JSON, TXT), runs **local transformer‑based sentiment analysis**, generates **AI summaries** (Gemini / Ollama), builds **word clouds**, and exports results as **CSV** and **PDF reports** – all wrapped in a clean, modern UI.
 
 ---
 
 ## ✨ Key Highlights
 
-- 📂 Upload feedback in **CSV, JSON, or TXT** formats  
-- 🤖 **Local transformer-based sentiment analysis** (RoBERTa / DistilBERT)  
-- 🧾 **AI summarization** using **Google Gemini** or **local Ollama models**  
-- 📊 Interactive analytics dashboard with charts & statistics  
-- ☁️ Word cloud generation  
-- 📁 Full **analysis history** with re-open, export, and delete support  
-- 📤 Export insights as **CSV** or **multi-page PDF reports**  
-- 🎨 Modern, responsive UI with dark/light themes  
+- 📂 Upload feedback in **CSV, JSON, or TXT** formats
+- 🤖 **Local transformer-based sentiment analysis** (RoBERTa / DistilBERT)
+- 🧾 **AI summarization** using **Google Gemini** or **local Ollama models**
+- 📊 Interactive analytics dashboard with charts & statistics
+- ☁️ Automatic word cloud generation
+- 🕘 Full analysis history with re-open, export, and delete support
+- 📤 Professional **CSV** and **PDF** exports
+- 🎨 Modern, responsive UI with dark/light themes
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
-1. [Features](#features)
-2. [Architecture](#architecture)
+1. [Key Features](#key-features)
+2. [Architecture Overview](#architecture-overview)
 3. [Tech Stack](#tech-stack)
 4. [Project Structure](#project-structure)
 5. [Getting Started](#getting-started)
@@ -40,147 +39,137 @@ It supports multi-file uploads, performs **local transformer-based sentiment ana
 
 ---
 
-## 🚀 Features
+## Key Features
 
-### 📂 Multi-Format Upload
-- Upload feedback from **CSV**, **JSON**, or **TXT** files  
-- Supports **multiple files per analysis**  
-- Automatically merges content into a unified dataset
+### Multi‑format upload
 
----
+- Upload feedback from `CSV`, `JSON`, or `TXT` files
+- Supports multiple files per analysis, automatically merged into a single dataset
 
-### 🤖 Transformer-Based Sentiment Analysis
-- Runs **locally** using Hugging Face transformer models
-- Supported models:
-  - `roberta`
-  - `distilbert`
-- Outputs:
-  - Per-comment sentiment (`positive`, `neutral`, `negative`)
-  - Confidence scores
-  - Aggregated metrics for dashboards & reports
+### Transformer‑based sentiment analysis
 
----
+- Uses **local Hugging Face transformer models** (e.g. RoBERTa / DistilBERT)
+- Implemented via `transformers` and `torch`
+- Produces per‑comment labels: `positive`, `neutral`, `negative`
+- Aggregates counts and scores for dashboards, charts, and exports
 
-### 🧠 AI-Powered Summarization
-- Generates concise summaries for long feedback
-- Supported engines:
-  - **Google Gemini API** (cloud)
-  - **Ollama** (local LLMs such as `gemma3:7b`)
-- Features:
-  - Batched processing
-  - Background execution
-  - Streaming progress updates
-  - Automatic retries for failed summaries
+### AI text summarization
 
----
+- Generates concise summaries for long comments
+- Primary summarizer: **Google Gemini API** (`google-genai`)
+- Optional local summarizer: **Ollama** (e.g. `gemma3:7b`)
+- Summarization is **batched and streamed** to keep the UI responsive
 
-### 📊 Analytics Dashboard
-- Sentiment distribution (bar & pie charts)
-- Comment-level insights and summaries
-- Key statistics & highlights
-- Automatically generated **word cloud**
+### Analytics dashboard
 
----
+- Visualizes sentiment distribution (positive / neutral / negative)
+- Displays comment‑level insights, summaries, and key statistics
+- Generates a **wordcloud** image (PNG)
 
-### 🕘 History & Analysis Management
-- Every run is stored as a persistent **Analysis**
-- View historical analyses with metadata
-- Re-open, export, or delete previous analyses
+### History & management
 
----
+- Every upload is stored as an **Analysis** record with metadata and timestamps
+- Chronological history of analyses
+- Re‑open, inspect, export, or delete past analyses
 
-### 📤 Exports & Reports
-- **CSV Export**
-  - Raw text
-  - Cleaned text
-  - Sentiment label & score
-  - AI summary
-- **PDF Report**
-  - Multi-page professional report
-  - Charts, tables, insights, and recommendations
-  - Generated using `reportlab`
+### Exports: CSV & PDF
+
+- **CSV export**: original text, cleaned text, sentiment, score, summary
+- **PDF export**: multi‑page “Feedback Intelligence Report” generated using `reportlab`
+
+### Modern, responsive frontend
+
+- Clean UI built with HTML, CSS, and vanilla JavaScript
+- Dark / light theme toggle persisted via `localStorage`
+- Loading states, modals, and progress indicators
+
+### Admin & diagnostics
+
+- Health check endpoint (`/health`) reporting summarizer status and env configuration
+- Admin endpoints to reload environment variables and dynamically load sentiment models
 
 ---
 
-### 🎨 Modern Frontend
-- Clean UI built with **HTML, CSS, and Vanilla JavaScript**
-- Dark / Light theme toggle (persisted via `localStorage`)
-- Loading states, progress indicators, and modals
-- Fully responsive for modern browsers
+## Architecture Overview
+
+### Backend (`backend/`)
+
+- FastAPI application exposing REST APIs
+- Local sentiment analysis using transformer models
+- AI summarization orchestrated via FastAPI `BackgroundTasks`
+- Server‑side CSV, PDF, and wordcloud generation
+
+### Frontend (`frontend/`)
+
+- Static HTML pages (`index.html`, `dashboard.html`, `history.html`)
+- Frontend logic implemented in `app.js`
+- Charts rendered using Chart.js, AmCharts, and AnyChart
+
+### Storage (`data/`)
+
+- SQLite database (`analyses.db`) storing analyses and comment‑level results
+
+### Configuration
+
+- Environment variables loaded from `.env` using `python-dotenv`
 
 ---
 
-## 🏗 Architecture
+## Tech Stack
 
 ### Backend
-- **FastAPI** REST API
-- Local ML inference using Hugging Face
-- Background summarization tasks
-- CSV / PDF / Wordcloud generation
-- SQLite persistence
 
-### Frontend
-- Static HTML pages served via FastAPI
-- JavaScript-driven API interactions
-- Charting via Chart.js, AmCharts, AnyChart
-
-### Storage
-- SQLite database for analyses & comments
-- File-based assets and reports
-
----
-
-## 🧰 Tech Stack
-
-### Backend
 - FastAPI
 - Uvicorn
 - SQLite
-- Python-dotenv
+- python‑dotenv
 
 ### Machine Learning & AI
-- Hugging Face Transformers
-- PyTorch
-- Google Gemini API
-- Ollama (optional local LLMs)
-- Pandas, NumPy
 
-### Visualization & Reporting
-- ReportLab (PDF)
+- Hugging Face transformers
+- PyTorch
+- Google Gemini API (`google-genai`)
+- Ollama (optional local LLMs)
+- NumPy, Pandas
+
+### Reporting & Visualization
+
+- ReportLab (PDF generation)
 - WordCloud
 - Pillow
 
 ### Frontend
+
 - HTML5, CSS3, Vanilla JavaScript
 - Chart.js, AmCharts, AnyChart
 - Font Awesome
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 FeedBack_Analyzer/
 ├─ backend/
-│  ├─ app.py              # FastAPI application
-│  ├─ db.py               # SQLite helpers
-│  ├─ models.py           # Enums & constants
-│  ├─ schemas.py          # API schemas
-│  ├─ sentiment.py        # Transformer sentiment analysis
-│  ├─ summarizer.py       # Gemini & Ollama summarizers
-│  ├─ utils.py            # Parsing & helpers
+│  ├─ app.py             # FastAPI app & API routes
+│  ├─ db.py              # SQLite connection & helpers
+│  ├─ models.py          # Enums (AnalysisStatus, SummaryStatus)
+│  ├─ schemas.py         # Pydantic response models
+│  ├─ sentiment.py       # Transformer-based sentiment analyzer
+│  ├─ summarizer.py      # Gemini & Ollama summarizers
+│  ├─ utils.py           # File parsing & helpers
 │
 ├─ frontend/
-│  ├─ index.html          # Upload UI
-│  ├─ dashboard.html      # Analytics dashboard
-│  ├─ history.html        # Analysis history
+│  ├─ index.html         # Upload UI
+│  ├─ dashboard.html     # Analytics dashboard
+│  ├─ history.html       # Analysis history
 │  └─ static/
 │     ├─ css/style.css
 │     ├─ js/app.js
 │     └─ assets/images/ui
 │
 ├─ data/
-│  └─ analyses.db         # SQLite database
+│  └─ analyses.db
 │
 ├─ requirements.txt
 ├─ installer.bat
@@ -190,48 +179,43 @@ FeedBack_Analyzer/
 
 ---
 
-## 🧑‍💻 Getting Started
+## Getting Started
 
 ### Prerequisites
-- Python **3.10+**
+
+- Python 3.10+
 - Windows, Linux, or macOS
-- *(Optional)* Ollama for local LLM summarization
+- Optional: Ollama for local summarization
 
----
+### Clone the repository
 
-### Clone the Repository
 ```bash
 git clone https://github.com/sam-eer31/FeedBack_Analyzer.git
 cd FeedBack_Analyzer
 ```
 
----
+### Windows one‑click install
 
-### Windows (Recommended)
 ```bash
 installer.bat
-launch.bat
 ```
 
----
-
-### Manual Setup (Cross-Platform)
+### Manual setup (cross‑platform)
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-uvicorn backend.app:app --reload
 ```
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 Create a `.env` file in the project root:
 
 ```env
-GEMINI_API_KEY=your_api_key_here
+GEMINI_API_KEY=your_gemini_api_key_here
 HOST=0.0.0.0
 PORT=8000
 DATA_DIR=data
@@ -240,105 +224,163 @@ MAX_BATCH_CHARS=18000
 MAX_COMMENTS_PER_BATCH=40
 ```
 
----
-
-## 🌐 Using the Web UI
-
-- Upload feedback files
-- Track analysis progress
-- Explore dashboards
-- Review historical analyses
-- Export CSV & PDF reports
-- View word clouds
-
-Access via:
-```
-http://localhost:8000/frontend/index.html
-```
+Notes:
+- BOM‑prefixed env keys are normalized on Windows
+- `.env` can be reloaded via `/admin/reload_env`
 
 ---
 
-## 🔌 API Overview
+## Running the Application
+
+### Using launch.bat (Windows)
+
+```bash
+launch.bat
+```
+
+### Manual Uvicorn
+
+```bash
+uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
+```
+
+---
+
+## Using the Web UI
+
+- Upload one or more feedback files
+- Track sentiment and summarization progress
+- Explore dashboards and insights
+- View history and manage analyses
+- Export CSV, PDF, and wordclouds
+
+---
+
+## API Overview
+
+### Health & admin
 
 - `GET /health`
+- `POST /admin/reload_env`
+- `POST /admin/force_gemini`
+- `POST /admin/load_sentiment_model`
+- `GET /admin/sentiment_models_status`
+
+### Analysis lifecycle
+
 - `POST /analyses/upload`
 - `GET /analyses`
-- `GET /analyses/{id}`
-- `DELETE /analyses/{id}`
-- `GET /analyses/{id}/export.csv`
-- `GET /analyses/{id}/export.pdf`
-- `GET /analyses/{id}/wordcloud`
+- `GET /analyses/{analysis_id}`
+- `DELETE /analyses/{analysis_id}`
+
+### Summarization control
+
+- `POST /analyses/{analysis_id}/summarize`
+- `POST /analyses/{analysis_id}/retry-failed-summaries`
+
+### Exports & assets
+
+- `GET /analyses/{analysis_id}/export.csv`
+- `GET /analyses/{analysis_id}/export.pdf`
+- `GET /analyses/{analysis_id}/wordcloud`
 
 ---
 
-## 🗄 Data & Storage
+## Data & Storage
 
-- SQLite database (`data/analyses.db`)
-- Stores analyses, comments, summaries, and metadata
+- SQLite database: `data/analyses.db`
+- Stores analyses, comments, sentiment, summaries, and metadata
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
-Below are key UI screens showcasing the main features of **FeedBack Analyzer**.  
-Click any image to view it full-size on GitHub.
+<details open>
+<summary><strong>📸 Application UI Overview</strong></summary>
 
-### Upload / Home Page
+<br/>
+
+### Upload / Home
+*Start a new analysis by uploading feedback files (CSV, JSON, TXT) and preview parsed content before processing.*
+
 ![Upload Page](frontend/static/assets/images/ui/index.html.png)
 
-### Dashboard
+---
+
+### Analytics Dashboard
+*Visual overview of sentiment distribution, key metrics, summaries, and insights.*
+
 ![Dashboard](frontend/static/assets/images/ui/dashboard.html.png)
 
+---
+
 ### Analysis History
+*Chronological list of past analyses with status, metadata, and quick actions.*
+
 ![History](frontend/static/assets/images/ui/history.html.png)
 
+---
+
 ### Preview Modal
+*Inspect parsed feedback content before starting analysis.*
+
 ![Preview Modal](frontend/static/assets/images/ui/preview_modal.png)
 
-### Settings Modal
+---
+
+### Settings & Configuration
+*Configure sentiment models, summarization engines, and runtime options.*
+
 ![Settings Modal](frontend/static/assets/images/ui/settings_modal.png)
 
+---
+
 ### Word Cloud Visualization
+*Automatically generated word cloud from combined feedback and summaries.*
+
 ![Wordcloud](frontend/static/assets/images/ui/wordcloud.png)
 
+---
+
 ### Exported Reports
+*Professional exports for sharing and downstream analysis.*
+
 **CSV Export**  
 ![CSV Report](frontend/static/assets/images/ui/csv_report.png)
 
-**PDF Export**  
+**PDF Report**  
 ![PDF Report](frontend/static/assets/images/ui/pdf_report.png)
 
----
-
-## 🧪 Development Notes
-
-- Handles BOM-prefixed `.env` keys on Windows
-- Lazy-loads sentiment models
-- Robust summarization retry mechanism
-- Memory-aware batch processing
+</details>
 
 ---
 
-## 🛠 Troubleshooting
+## Development Notes
+
+- Default sentiment model loaded at startup (`roberta`)
+- Additional models are lazy‑loaded via admin endpoints
+- Summarization is batched, streamed, and retried on failure
+
+---
+
+## Troubleshooting
 
 - Ensure `GEMINI_API_KEY` is set
 - Check `/health` endpoint
 - Retry failed summaries via API
-- Reduce batch sizes for low-memory systems
+- Reduce batch sizes for low‑memory systems
 
 ---
 
-## 🔮 Future Improvements
+## Future Improvements
 
-- User authentication & multi-tenant support
-- Topic modeling & trend analysis
+- Authentication & multi‑tenant support
+- Topic clustering and trend analysis
 - API integrations (CRM, surveys, ticketing)
 - Custom export templates
-- Advanced sentiment tuning
 
 ---
 
-## 📄 License
+## License
 
-This project is licensed under the **MIT License**.
-See the `LICENSE` file for details.
+MIT License
