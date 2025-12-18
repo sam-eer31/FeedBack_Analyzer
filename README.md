@@ -26,22 +26,24 @@ It lets you upload feedback files (CSV, JSON, TXT), runs **local transformer-bas
 
 ## 📚 Table of Contents
 
-1. [✨ Key Highlights](#key-highlights)
-2. [🚀 Key Features](#key-features)
-3. [🏗 Architecture Overview](#architecture-overview)
-4. [🧰 Tech Stack](#tech-stack)
-5. [📁 Project Structure](#project-structure)
-6. [🧑‍💻 Getting Started](#getting-started)
-7. [⚙️ Configuration](#configuration)
-8. [▶️ Running the Application](#running-the-application)
-9. [🌐 Using the Web UI](#using-the-web-ui)
-10. [🔌 API Overview](#api-overview)
-11. [🗄 Data & Storage](#data--storage)
-12. [📸 Screenshots](#screenshots)
-13. [🧪 Development Notes](#development-notes)
-14. [🛠 Troubleshooting](#troubleshooting)
-15. [🔮 Future Improvements](#future-improvements)
-16. [📄 License](#license)
+> ✅ **GitHub-safe anchors (emoji-proof)**
+
+1. [Key Highlights](#key-highlights)
+2. [Key Features](#key-features)
+3. [Architecture Overview](#architecture-overview)
+4. [Tech Stack](#tech-stack)
+5. [Project Structure](#project-structure)
+6. [Getting Started](#getting-started)
+7. [Configuration](#configuration)
+8. [Running the Application](#running-the-application)
+9. [Using the Web UI](#using-the-web-ui)
+10. [API Overview](#api-overview)
+11. [Data & Storage](#data--storage)
+12. [Screenshots](#screenshots)
+13. [Development Notes](#development-notes)
+14. [Troubleshooting](#troubleshooting)
+15. [Future Improvements](#future-improvements)
+16. [License](#license)
 
 ---
 
