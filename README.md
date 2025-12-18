@@ -170,7 +170,7 @@ FeedBack_Analyzer/
 │
 ├─ requirements.txt
 ├─ installer.bat         # Installer to setup everything
-└─ launch.bat            # launcher to start backend 
+└─ launch.bat            # launcher to start backend
 ```
 
 ---
@@ -192,28 +192,52 @@ git clone https://github.com/sam-eer31/FeedBack_Analyzer.git
 cd FeedBack_Analyzer
 ```
 
-### 2. Create & activate a virtual environment
+### 2. (Windows) One‑click install with `installer.bat` _(recommended on Windows)_
+
+From the project root, simply run:
 
 ```bash
-python -m venv .venv
-
-# Windows PowerShell
-. .venv\Scripts\Activate.ps1
-
-# Windows CMD
-.venv\Scripts\activate.bat
-
-# Linux / macOS (bash/zsh)
-source .venv/bin/activate
+installer.bat
 ```
 
-### 3. Install dependencies
+This script will:
 
-From the project root:
+- Create (or reuse) a virtual environment.
+- Install all Python dependencies from `requirements.txt`.
+- Perform any additional first‑time setup required by the app.
 
-```bash
-pip install -r requirements.txt
-```
+You can then skip directly to [Running the Application](#running-the-application).
+
+### 3. Manual setup (cross‑platform alternative)
+
+If you prefer to set things up yourself (or are on Linux/macOS), follow these steps **instead of** using `installer.bat`:
+
+1. **Create a virtual environment**
+
+   ```bash
+   python -m venv .venv
+   ```
+
+2. **Activate the virtual environment**
+
+   ```bash
+   # Windows PowerShell
+   . .venv\Scripts\Activate.ps1
+
+   # Windows CMD
+   .venv\Scripts\activate.bat
+
+   # Linux / macOS (bash/zsh)
+   source .venv/bin/activate
+   ```
+
+3. **Install dependencies**
+
+   From the project root:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ---
 
@@ -256,22 +280,22 @@ MAX_COMMENTS_PER_BATCH=40      # Max comments summarized per batch
 
 ## Running the Application
 
-You can start the backend either via the provided batch scripts or directly with Uvicorn.
+You can start the backend using the launch script on Windows or directly with Uvicorn.
 
-### Option A: Using the provided batch script (Windows)
+### Option A: Using `launch.bat` (Windows, recommended)
 
-From the project root:
+After you have run `installer.bat` at least once, start the server from the project root with:
 
 ```bash
-start.bat
+launch.bat
 ```
 
-This typically:
+This script will:
 
-- Activates the virtual environment (if configured in the script).
-- Starts the FastAPI server using Uvicorn.
+- Activate the virtual environment prepared by `installer.bat`.
+- Launch the FastAPI backend using Uvicorn on the configured host/port.
 
-### Option B: Manual Uvicorn command
+### Option B: Manual Uvicorn command (all platforms)
 
 From the project root (with your virtualenv activated):
 
@@ -282,10 +306,6 @@ uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
 The API will be available at:
 
 - `http://localhost:8000`
-
-If you mount docs or use FastAPI’s built‑in docs:
-
-- Interactive API docs (if enabled): `http://localhost:8000/docs`
 
 ---
 
@@ -344,8 +364,7 @@ In development you have two options:
      - **Download PDF Report** – “Feedback Intelligence Report” with charts and commentary.
 
 6. **Wordcloud**
-   - The UI can request a generated **wordcloud** image per analysis.
-   - Backend generates a PNG on demand using the union of all comments & summaries.
+   - Backend generates a PNG  using the union of all comments & summaries.
 
 ---
 
@@ -427,16 +446,7 @@ Below is a high‑level overview of key backend endpoints. For exact request/res
   - SQLite file: `data/analyses.db`.
   - Stores:
     - Analyses: id, name, timestamps, status, sentiment counts, sentiment model, summary model, meta.
-    - Comments: id, original text, cleaned text, sentiment label/score, summary, status, model type, timestamps, and optional `external_file` reference.
-
-- **Generated assets**
-
-  - **Wordclouds**: stored as PNG images under `data/wordclouds/` (as well as returned as base64 via API).
-  - **Exports**: PDFs and CSVs under `data/exports/`, following `analysis_<uuid>.pdf` / `.csv` naming.
-
-- **Logging**
-  - Main log file: `logs/app.log`.
-  - Includes startup info, model loading logs, summarization batch progress, and error traces.
+    - Comments: id, original text, cleaned text, sentiment label/score, summary, status, model type, timestamps, and optional `external_file` reference
 
 ---
 
@@ -460,13 +470,6 @@ Below is a high‑level overview of key backend endpoints. For exact request/res
 
 ## Screenshots
 
-For GitHub‑friendly paths and to reuse the assets directly in the app, place your screenshots in the frontend images folder:
-
-- **Source (current)**: `docs/documentation/UI_Screenshots/`
-- **Recommended target**: `frontend/static/assets/images/ui/`
-
-Move or copy the screenshot files there (for example: `index.html.png`, `dashboard.html.png`, `history.html.png`, etc.).  
-With that structure, you can embed them in this README using the paths below.
 
 - **Upload / Home page**
 
@@ -572,9 +575,3 @@ With that structure, you can embed them in this README using the paths below.
 
 This project is licensed under the **MIT License**.  
 See the `LICENSE` file at the root of this repository for the full license text.
-
-
-
-
-
-
