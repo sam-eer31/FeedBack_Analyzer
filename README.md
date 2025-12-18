@@ -1,45 +1,53 @@
 ## FeedBack Analyzer
 
-FeedBack Analyzer is an end‑to‑end web application that turns **raw textual feedback** into **actionable insights**.
-It lets you upload feedback files (CSV, JSON, TXT), runs **local transformer‑based sentiment analysis**, generates **AI summaries** (Gemini / Ollama), builds **word clouds**, and exports results as **CSV** and **PDF reports** – all wrapped in a clean, modern UI.
+FeedBack Analyzer is an end-to-end web application that turns **raw textual feedback** into **actionable insights**.
+It lets you upload feedback files (CSV, JSON, TXT), runs **local transformer-based sentiment analysis**, generates **AI summaries** (Gemini / Ollama), builds **word clouds**, and exports results as **CSV** and **PDF reports** – all wrapped in a clean, modern UI.
 
 ---
 
 ## ✨ Key Highlights
 
-- 📂 Upload feedback in **CSV, JSON, or TXT** formats
-- 🤖 **Local transformer-based sentiment analysis** (RoBERTa / DistilBERT)
-- 🧾 **AI summarization** using **Google Gemini** or **local Ollama models**
-- 📊 Interactive analytics dashboard with charts & statistics
-- ☁️ Automatic word cloud generation
-- 🕘 Full analysis history with re-open, export, and delete support
-- 📤 Professional **CSV** and **PDF** exports
-- 🎨 Modern, responsive UI with dark/light themes
+- 📂 **Multi-format uploads** — CSV, JSON, TXT (multiple files supported)
+- 🤖 **Local transformer-based sentiment analysis** — RoBERTa / DistilBERT
+- 🧠 **AI-powered summarization** — Google Gemini or local Ollama models
+- 📊 **Interactive analytics dashboard** — charts, metrics, insights
+- ☁️ **Automatic word cloud generation**
+- 🕘 **Full analysis history** — view, re-open, export, delete
+- 📤 **Professional exports** — CSV & multi-page PDF reports
+- 🎨 **Modern responsive UI** — dark & light themes
 
 ---
 
-## Table of Contents
 
-1. [Key Features](#key-features)
-2. [Architecture Overview](#architecture-overview)
-3. [Tech Stack](#tech-stack)
-4. [Project Structure](#project-structure)
-5. [Getting Started](#getting-started)
-6. [Configuration](#configuration)
-7. [Running the Application](#running-the-application)
-8. [Using the Web UI](#using-the-web-ui)
-9. [API Overview](#api-overview)
-10. [Data & Storage](#data--storage)
-11. [Exports & Reporting](#exports--reporting)
-12. [Screenshots](#screenshots)
-13. [Development Notes](#development-notes)
-14. [Troubleshooting](#troubleshooting)
-15. [Future Improvements](#future-improvements)
-16. [License](#license)
+
+
+
+
+
+## 📚 Table of Contents
+
+1. [✨ Key Highlights](#-key-highlights)
+2. [🚀 Key Features](#-key-features)
+3. [🏗 Architecture Overview](#-architecture-overview)
+4. [🧰 Tech Stack](#-tech-stack)
+5. [📁 Project Structure](#-project-structure)
+6. [🧑‍💻 Getting Started](#-getting-started)
+7. [⚙️ Configuration](#-configuration)
+8. [▶️ Running the Application](#️-running-the-application)
+9. [🌐 Using the Web UI](#-using-the-web-ui)
+10. [🔌 API Overview](#-api-overview)
+11. [🗄 Data & Storage](#-data--storage)
+12. [📸 Screenshots](#-screenshots)
+13. [🧪 Development Notes](#-development-notes)
+14. [🛠 Troubleshooting](#-troubleshooting)
+15. [🔮 Future Improvements](#-future-improvements)
+16. [📄 License](#-license)
 
 ---
 
-## Key Features
+
+
+## 🚀 Key Features
 
 ### Multi‑format upload
 
@@ -90,7 +98,7 @@ It lets you upload feedback files (CSV, JSON, TXT), runs **local transformer‑b
 
 ---
 
-## Architecture Overview
+## 🏗 Architecture Overview
 
 ### Backend (`backend/`)
 
@@ -109,13 +117,13 @@ It lets you upload feedback files (CSV, JSON, TXT), runs **local transformer‑b
 
 - SQLite database (`analyses.db`) storing analyses and comment‑level results
 
-### Configuration
+### ⚙️ Configuration
 
 - Environment variables loaded from `.env` using `python-dotenv`
 
 ---
 
-## Tech Stack
+## 🧰 Tech Stack
 
 ### Backend
 
@@ -146,7 +154,7 @@ It lets you upload feedback files (CSV, JSON, TXT), runs **local transformer‑b
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
 ```text
 FeedBack_Analyzer/
@@ -179,7 +187,7 @@ FeedBack_Analyzer/
 
 ---
 
-## Getting Started
+## 🧑‍💻 Getting Started
 
 ### Prerequisites
 
@@ -230,7 +238,7 @@ Notes:
 
 ---
 
-## Running the Application
+## ▶️ Running the Application
 
 ### Using launch.bat (Windows)
 
@@ -246,7 +254,7 @@ uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
 
 ---
 
-## Using the Web UI
+## 🌐 Using the Web UI
 
 - Upload one or more feedback files
 - Track sentiment and summarization progress
@@ -256,7 +264,7 @@ uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
 
 ---
 
-## API Overview
+## 🔌 API Overview
 
 ### Health & admin
 
@@ -286,14 +294,14 @@ uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
 
 ---
 
-## Data & Storage
+## 🗄 Data & Storage
 
 - SQLite database: `data/analyses.db`
 - Stores analyses, comments, sentiment, summaries, and metadata
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 <details open>
 <summary><strong>📸 Application UI Overview</strong></summary>
@@ -355,7 +363,7 @@ uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
 
 ---
 
-## Development Notes
+## 🧪 Development Notes
 
 - Default sentiment model loaded at startup (`roberta`)
 - Additional models are lazy‑loaded via admin endpoints
@@ -363,7 +371,7 @@ uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
 
 ---
 
-## Troubleshooting
+## 🛠 Troubleshooting
 
 - Ensure `GEMINI_API_KEY` is set
 - Check `/health` endpoint
@@ -372,7 +380,7 @@ uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
 
 ---
 
-## Future Improvements
+## 🔮 Future Improvements
 
 - Authentication & multi‑tenant support
 - Topic clustering and trend analysis
@@ -381,6 +389,6 @@ uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
 
 ---
 
-## License
+## 📄 License
 
 MIT License
