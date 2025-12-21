@@ -40,7 +40,7 @@ It lets you upload feedback files (CSV, JSON, TXT), runs **local transformer-bas
 3. 🏗 [Architecture Overview](#architecture-overview)
 4. 🧰 [Tech Stack](#tech-stack)
 5. 📁 [Project Structure](#project-structure)
-6. 🧑‍💻 [Getting Started](#getting-started)
+6. 💻 [Getting Started](#getting-started)
 7. ⚙️ [Configuration](#configuration)
 8. ▶️ [Running the Application](#running-the-application)
 9. 🌐 [Using the Web UI](#using-the-web-ui)
@@ -209,7 +209,7 @@ FeedBack_Analyzer/
 
 <a id="getting-started"></a>
 
-## 🧑‍💻 Getting Started
+## 💻 Getting Started
 
 ### Prerequisites
 
@@ -453,6 +453,7 @@ uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
 ## 📄 License
 
 MIT License
+
 
 
 
